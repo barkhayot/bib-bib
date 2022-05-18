@@ -1,0 +1,76 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+
+<style>
+  
+    .divider-text {
+    position: relative;
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.divider-text span {
+    padding: 7px;
+    font-size: 12px;
+    position: relative;   
+    z-index: 2;
+}
+.divider-text:after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    border-bottom: 1px solid #ddd;
+    top: 55%;
+    left: 0;
+    z-index: 1;
+}
+
+.btn-facebook {
+    background-color: #405D9D;
+    color: #fff;
+}
+.btn-twitter {
+    background-color: #42AEEC;
+    color: #fff;
+}
+
+</style>
+
+<div class="container">
+
+    <div class="card bg-light" style="text-align: center;">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+            <h4 class="card-title mt-3 text-center">Please Login</h4>
+            <hr>
+            <br>
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+            <form method="POST"  action="">
+                {% csrf_token %}
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                 </div>
+                 <input name="email" class="form-control" placeholder="Email" type="text">
+            </div> <!-- form-group// -->
+        
+            <div class="form-group input-group">
+                <div class="input-group-prepend">
+                    
+                </div>
+                <input name="password" class="form-control" placeholder="Password" type="password">
+            </div> <!-- form-group// -->                                     
+            <div class="form-group">
+                <br>
+                <button type="submit" class="btn btn-block" style="background-color: rgb(97, 189, 212); border-color: black; border-radius: 50px; color: white;"> Login  </button>
+            </div> <!-- form-group// -->  
+            <br>    
+            <p class="text-center">If you dont have an account you can <a href="{% url 'register' %}">Create</a> it now </p>                                                                 
+        </form>
+        {{form.errors}}
+        </article>
+        </div> <!-- card.// -->
+</div>
+
+{% endblock %}

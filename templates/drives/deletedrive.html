@@ -1,0 +1,21 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+<div class="container">
+    <div class="col-md-8 card mb-4  mt-3 left  top">
+        <div class="card-body">
+            <!-- Create a Form -->
+            <form method="POST">
+                <!-- Security token by Django -->
+                {% csrf_token %}
+                <h4 class="card-text ">Do you really want to delete this Drive ?</h4>
+                <h5> Drive : <span style="font-style: oblique; font-size: 12px;">{{drive.going_city}}</span></h5>
+                <br>
+                <input type="submit" class="btn btn-danger btn" value="Yes" />
+                <a href="{% url 'GetDrives' %}" class="btn btn-primary  btn">Cancel </a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

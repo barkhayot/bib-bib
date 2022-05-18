@@ -1,0 +1,149 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+    <div class="container">
+        <div class="row" style="padding: 20px;">
+            <div class="col text-center" >
+                <img style="width: auto; height: 180px;" src="https://img.freepik.com/free-vector/group-happy-university-students-with-study-books-gadgets_88138-559.jpg?t=st=1652445898~exp=1652446498~hmac=b1409f24a260612ae3d58b60f3ce880e2d88ca10875af34f92e372704203dde7&w=1060" alt="">
+            <hr>
+            </div>
+        </div>
+            
+        
+            <h2 style="text-align: center;">Bib Bib Let's Drive Together</h2>
+            <br>
+            <br>
+            <form action="{% url 'SearchDrive' %}" method="GET" class="">
+                <div class="row text-center" style=" align-items: center;">
+                    <div class="col-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                           </svg>
+                    </div>
+                    <div class="col-9">
+                        <p style="font-size: 9px; text-align: left; color:rgb(148, 145, 145)"> 
+                            Enter the City that you are going From
+                            {{filter.form.leaving_city}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row text-center" style=" align-items: center;">
+                    <div class="col-3">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                           </svg>
+                    </div>
+                    <div class="col-9">
+                        <p style="font-size: 9px; text-align: left; color:rgb(148, 145, 145)"> 
+                            Enter the City that you are going To
+                            {{filter.form.going_city}}
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="row text-center" style=" align-items: center;">
+                    <div class="col-3">
+                        <svg class="rounded" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-calendar-week" viewBox="0 0 16 16">
+                            <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm-5 3a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1zm3 0a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
+                            <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
+                          </svg>
+                    </div>
+                    <div class="col-9">
+                        <p style="font-size: 9px; text-align: left; color:rgb(148, 145, 145)"> 
+                            Enter Number of Passengers
+                            {{filter.form.date}}
+                        </p>
+                    </div>
+                </div>
+                <div class="row text-center" style=" align-items: center;">
+                    <div class="col-3">
+                    </div>
+                    <div class="col-9">
+                        <button class="btn form-control" style="background-color: rgb(58, 162, 189); color: white;">Search</button>
+                    </div>
+                </div>
+            </form>
+        <br>
+        <br>
+
+            
+            
+        {% for drive in drives %}
+
+            <a href="{% url 'DriveDetail' drive.pk %}" style="text-decoration: none; color: black;">
+            <div class="card shadow-lg rounded" style="width:100%; padding: 10px;">              
+                <br>
+                <div class="row">
+                    <div class="col-3">
+                        <h6 style="text-align: center; "> {{drive.leaving_time}}</h6>
+                        <h6 style="font-size: 13px; text-align: center; color: darkgray;">{{drive.date}}</h6>
+                    </div>
+                    <div class="col-4">
+                        <h6> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                          </svg> <span style="margin-left: 15px;"> {{drive.leaving_city}} </span> </h6>
+                          <h1 style="font-size: 52px;">|</h1>
+                         
+                    </div>
+                    <div class="col-3">
+                        <h6 style="margin-left: 10px;" >{{drive.driver.last_name}}</h6>
+                        <img style="width: 55px;" src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=Heather&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light'/>
+                    </div>
+                    <div class="col-2">
+                        <h6> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                          </svg><span style="margin-left: 15px;">  </span> </h6>
+                          <h1 style="font-size: 52px;">|</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-3">
+                        <h6 style="text-align: center;"> {{drive.coming_time}}</h6>
+                    </div>
+                    <div class="col-4">
+                        <h6> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                          </svg> <span style="margin-left: 15px;"> {{drive.going_city}} </span> </h6>
+
+                    </div>
+                    <div class="col-3">
+                        <h6 style="margin-left: 10px;"> {{drive.price}}</h6>
+                    </div>
+                    <div class="col-2">
+                        <h6>{{drive.passengers}}</h6>
+                         <!---- <img style="height: 90px; margin-left: -35px;" src="https://cdn-icons.flaticon.com/png/512/2931/premium/2931528.png?token=exp=1652076848~hmac=b2400d005881559cf8782253b410795d" alt="">
+                         -->
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+            <br>
+            </a>
+            
+            {% endfor %}
+            <div class="text-center">
+                <a href="{% url 'SearchDrive' %}" class="btn btn-lg" style=" font-size: 15px;  background-color: rgb(97, 189, 212); border-radius: 50px; color: white;">Get More</a>
+            </div>
+            
+            <br>
+            <div class="row" style="padding: 20px;">
+                <div class="col">
+                    <img src="https://cdn.blablacar.com/kairos/assets/images/driver_masks-8bad4a96a1d6cbab177eb4b96db6344e.svg" alt="">
+                </div>
+                <div class="col">
+                    <div class="drive" style="padding-top: 70px;">
+                    <h4>Where do you want to drive to?</h4>
+                    <p>Let's make this your least expensive journey ever.</p>
+                    <button class="btn btn-block btn-lg" style=" font-size: 15px;  background-color: rgb(97, 189, 212); border-radius: 50px; color: white;"> Publish a Ride</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </div>
+
+{% endblock %}

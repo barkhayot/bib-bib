@@ -1,0 +1,57 @@
+{% extends "base/base.html" %}
+{% block content %}
+<div class="container">
+<div class="card bg-light shadow-lg " style="text-align: center">
+    <article class="card-body mx-auto" style="max-width: 400px;">
+        <h4 class="card-title mt-3 text-center">Create Account</h4>
+        <hr>
+        <br>
+        {% for message in messages %}
+            <p>{{ message }}</p>
+        {% endfor %}
+        <form method="POST"  action="">
+            {% csrf_token %}
+        <div class="form-group input-group">
+            <div class="input-group-prepend">   
+             </div>
+            {{form.first_name}}
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">   
+             </div>
+            {{form.last_name}}
+        </div> <!-- form-group// -->
+
+        <div class="form-group input-group">
+            <div class="input-group-prepend">   
+             </div>
+            {{form.email}}
+        </div> <!-- form-group// -->
+    
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+            </div>
+            {{form.password}}
+        </div> <!-- form-group// -->
+        <div class="form-group input-group">
+            <div class="input-group-prepend">
+            </div>
+            {{form.confirm_password}}
+        </div> <!-- form-group// -->                                      
+        <div class="form-group">
+            <br>
+            <button type="submit" class="btn  btn-block " style="background-color: rgb(97, 189, 212); border-color: black; border-radius: 50px; ; color:rgb(255, 255, 255)"> Create Account  </button>
+        </div> <!-- form-group// -->   
+        <br>   
+        <p class="text-center">If you have an account you can <a href="{% url 'login' %}">Log In</a> to your page </p>                                                                 
+    </form>
+    {{form.email.errors}}
+    {{form.non_field_errors}}
+    </article>
+    </div> <!-- card.// -->
+</div>
+
+
+
+{% endblock %}

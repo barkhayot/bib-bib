@@ -1,0 +1,70 @@
+{% extends "base/base.html" %}
+{% block content %}
+
+    <div class="container">
+        <h2 style="margin-top: 100px; text-align: center;">My Drives </h2>
+        <br>
+        <br>
+
+        {% for drive in drives %}
+            <a href="{% url 'DriveDetail' drive.pk %}" style="text-decoration: none; color: black;">
+            <div class="card shadow-lg rounded" style="width:100%; padding: 10px;">              
+                <br>
+                <div class="row">
+                    <div class="col-3">
+                        <h6 style="text-align: center; "> {{drive.leaving_time}}</h6>
+                        <h6 style="font-size: 13px; text-align: center; color: darkgray;"> {{drive.date}}</h6>
+                    </div>
+                    <div class="col-4">
+                        <h6> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                          </svg> <span style="margin-left: 15px;"> {{drive.leaving_city}} </span> </h6>
+                          <h1 style="font-size: 52px;">|</h1>
+                         
+                    </div>
+                    <div class="col-3">
+                        <h6 style="margin-left: 10px;" >{{drive.driver.last_name}}</h6>
+                        <img style="width: 55px;" src='https://avataaars.io/?avatarStyle=Circle&topType=ShortHairShortCurly&accessoriesType=Prescription02&hairColor=Black&facialHairType=Blank&clotheType=Hoodie&clotheColor=Heather&eyeType=Default&eyebrowType=DefaultNatural&mouthType=Default&skinColor=Light'/>
+
+                    </div>
+                    <div class="col-2">
+                        <h6> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people-fill" viewBox="0 0 16 16">
+                            <path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"/>
+                            <path fill-rule="evenodd" d="M5.216 14A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216z"/>
+                            <path d="M4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5z"/>
+                          </svg><span style="margin-left: 15px;">  </span> </h6>
+                          <h1 style="font-size: 52px;">|</h1>
+                    </div>
+                </div>
+
+                <div class="row">
+
+                    <div class="col-3">
+                        <h6 style="text-align: center;"> {{drive.coming_time}}</h6>
+                    </div>
+                    <div class="col-4">
+                        <h6> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-right-circle" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"/>
+                          </svg> <span style="margin-left: 15px;"> {{drive.going_city}} </span> </h6>
+
+                    </div>
+                    <div class="col-3">
+                        <h6 style="margin-left: 10px;"> {{drive.price}}</h6>
+                    </div>
+                    <div class="col-2">
+                        <h6>{{drive.passengers}}</h6>
+                         <!---- <img style="height: 90px; margin-left: -35px;" src="https://cdn-icons.flaticon.com/png/512/2931/premium/2931528.png?token=exp=1652076848~hmac=b2400d005881559cf8782253b410795d" alt="">
+                         -->
+                    </div>
+                </div>
+                <br>
+                <br>
+            </div>
+            <br>
+            </a>
+            {% endfor %}
+            
+        </div>
+    </div>
+
+{% endblock %}
