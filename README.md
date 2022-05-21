@@ -29,6 +29,6 @@ After you install all required files and libraries go to **App Folder** and migr
 ### Examples :
 <img src="https://github.com/barkhayot/bib-bib/blob/main/screencapture-bib-bib-herokuapp-drives-2-2022-05-21-12_31_39.jpg" width="450" height="400" />
 
-<img src="https://github.com/barkhayot/bib-bib/blob/main/screencapture-bib-bib-herokuapp-drives-2022-05-21-12_28_07.jpg" width="450" height="500" />
+<img src="https://github.com/barkhayot/bib-bib/blob/main/screencapture-bib-bib-herokuapp-drives-2022-05-21-12_28_07.jpg" width="450" height="550" />
 
-<img src="https://github.com/barkhayot/bib-bib/blob/main/screencapture-bib-bib-herokuapp-drives-post-2022-05-21-12_34_12.jpg" width="300" height="500" />
+<img src="https://github.com/barkhayot/bib-bib/blob/main/screencapture-bib-bib-herokuapp-drives-post-2022-05-21-12_34_12.jpg" width="200" height="500" />
