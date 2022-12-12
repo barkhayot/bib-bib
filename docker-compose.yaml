@@ -1,0 +1,15 @@
+version: "3.7"
+
+services:
+
+  order_system:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: python manage.py runserver 0:80
+    environment:
+      C_FORCE_ROOT: "true"
+    ports:
+      - "8251:80"
+    volumes: 
+      - ./:/main
