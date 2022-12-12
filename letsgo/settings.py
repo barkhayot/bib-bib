@@ -80,23 +80,23 @@ WSGI_APPLICATION = 'letsgo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': "d49h8980oeg2vr",
-#         'USER': "iicojkwlvxdlyq",
-#         'PASSWORD': "8849dcb13b0b441946764431dadf02a2737d32e25803c9d27c3d53df732314ff",
-#         'HOST': "ec2-44-195-169-163.compute-1.amazonaws.com",
-#         'PORT': "5432",
-#     }
-# }
-
 DATABASES = {
-   'default': {
-       'ENGINE': 'django.db.backends.sqlite3',
-       'NAME': BASE_DIR / 'db.sqlite3',
-   }
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': "timer",
+        'USER': "postgres",
+        'PASSWORD': "gtb3E&rewBc!BP2U",
+        'HOST': "papamarketcorp.kr",
+        'PORT': "8432",
+    }
 }
+
+# DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.sqlite3',
+#        'NAME': BASE_DIR / 'db.sqlite3',
+#    }
+# }
 
 
 # Password validation
